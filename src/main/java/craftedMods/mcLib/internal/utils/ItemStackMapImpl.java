@@ -122,7 +122,7 @@ public class ItemStackMapImpl<V> implements ItemStackMap<V>
             throw new NullPointerException ("Key is null");
         if (! (key instanceof ItemStack))
             throw new IllegalArgumentException ("Key is not an instance of item stack");
-        return this.innerMap.remove (key);
+        return this.innerMap.remove (new ItemStackWrapper ((ItemStack) key, isNBTSensitive));
     }
 
     @Override
